@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
+  <meta name="viewport" content="width=device-width,user-scalable=no">
+  <script>
+    window.onload=function(){
+        item = document.getElementById('itemnew');
+        if(item) {
+            item.innerText = 'aaaa';
+        }
+
+        if(billing) {
+            if(item) {
+                item.innerText = 'aaaa222';
+            }
+
+        var items = billing.getItems();
+        var elem = document.getElementById('itemshow');
+        if(elem) {
+          elem.innerText = items;
+        }
+        var item = billing.getRecentItem();
+        elem = document.getElementById('itemnew');
+        if(elem) {
+          elem.innerText = item;
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  これはHTMLページ<br />
+  <hr />
+  <br />
+  <br />
+購入済みアイテム：<br />
+<br />
+<div id="itemshow"></div>
+<br />
+最近買ったアイテム：<br />
+<br />
+<div id="itemnew"></div>
+<br />
+
+<a href="#" ontouchend="window.location.reload()" onclick="window.location.reload()">更新</a><br />
+<hr />
+<br />
+<a href="#" ontouchend="billing.requestBilling('hp_recover_000')">アイテム１購入</a><br />
+<a href="#" ontouchend="billing.bill('android.test.purchased','file:///android_asset/html/success.html','file:///android_asset/html/error.html')">アイテム１「テスト-正常」購入</a><br />
+<a href="#" ontouchend="billing.bill('android.test.canceled','file:///android_asset/html/success.html','file:///android_asset/html/error.html')">アイテム２「テスト-エラー」購入</a><br />
+<a href="#" ontouchend="billing.bill('android.test.refunded','file:///android_asset/html/success.html','file:///android_asset/html/error.html')">アイテム３「テスト-払い戻し」購入</a><br />
+<br />
+</body>
+</html>
